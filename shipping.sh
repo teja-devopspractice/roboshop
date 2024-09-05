@@ -1,14 +1,33 @@
+echo -e "\e[36m>>>>>>>>>> Install Maven<<<<<<<<\e[0m"
 yum install maven -y
+
+echo -e "\e[36m>>>>>>>>>> Add Application User<<<<<<<<\e[0m"
 useradd roboshop
+
+echo -e "\e[36m>>>>>>>>>> Create Application Directory<<<<<<<<\e[0m"
 mkdir /app
+
+echo -e "\e[36m>>>>>>>>>> Download App Content <<<<<<<<\e[0m"
 curl -L -o /tmp/shipping.zip https://roboshop-artifacts.s3.amazonaws.com/shipping.zip
 cd /app
+
+echo -e "\e[36m>>>>>>>>>> Unzip App content <<<<<<<<\e[0m"
 unzip /tmp/shipping.zip
+
+echo -e "\e[36m>>>>>>>>>> Execute Maven Goals <<<<<<<<\e[0m"
 mvn clean package
 mv target/shipping-1.0.jar shipping.jar
-cp shipping.service /etc/systemd/system/shipping.service
+
+echo -e "\e[36m>>>>>>>>>> Create application directory <<<<<<<<\e[0m"
+cp /home/centos/roboshop/shipping.service /etc/systemd/system/shipping.service
+
+echo -e "\e[36m>>>>>>>>>> start shipping <<<<<<<<\e[0m"
 systemctl daemon-reload
 systemctl enable shipping
 systemctl start shipping
+
+echo -e "\e[36m>>>>>>>>>> Install Mysql <<<<<<<<\e[0m"
 dnf install mysql -y
+
+echo -e "\e[36m>>>>>>>>>> Load Schema<<<<<<<<\e[0m"
 mysql -h mysql-dev.raviteja.shop -uroot -pRoboShop@1 < /app/schema/shipping.sql
