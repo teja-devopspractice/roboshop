@@ -1,11 +1,12 @@
-echo -e "\e[36m>>>>>>>>>> Configure yum repos <<<<<<<<\e[0m"
+echo -e "\e[36m>>>>>>>>>> Setup Erlang Repos <<<<<<<<\e[0m"
 curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | bash
 
-echo -e "\e[36m>>>>>>>>>> Configure RabbitMQ repos <<<<<<<<\e[0m"
+echo -e "\e[36m>>>>>>>>>> Setup RabbitMQ repos <<<<<<<<\e[0m"
 curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | bash
 
 echo -e "\e[36m>>>>>>>>>> Install RabbitMQ  <<<<<<<<\e[0m"
-dnf install rabbitmq-server -y
+yum install erlang -y
+yum install rabbitmq-server -y
 
 echo -e "\e[36m>>>>>>>>>> Start RabbitMQ  <<<<<<<<\e[0m"
 systemctl enable rabbitmq-server
