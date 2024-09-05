@@ -2,7 +2,7 @@ echo -e "\e[36m>>>>>>>>>> Install nginx <<<<<<<<\e[0m"
 yum install nginx -y
 
 echo -e "\e[36m>>>>>>>>>> Setup SystemD Service <<<<<<<<\e[0m"
-cp /home/centos/roboshop/roboshop.conf /etc/nginx/default.d/roboshop.conf
+cp roboshop.conf /etc/nginx/default.d/roboshop.conf
 rm -rf /usr/share/nginx/html/*
 
 echo -e "\e[36m>>>>>>>>>> Download App Content<<<<<<<<\e[0m"
