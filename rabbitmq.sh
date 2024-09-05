@@ -12,6 +12,6 @@ echo -e "\e[36m>>>>>>>>>> Start RabbitMQ  <<<<<<<<\e[0m"
 systemctl enable rabbitmq-server
 systemctl start rabbitmq-server
 
-echo -e "\e[36m>>>>>>>>>> Add Application User <<<<<<<<\e[0m"
+echo -e "\e[36m>>>>>>>>>> Add Application User in rabbitmq <<<<<<<<\e[0m"
 rabbitmqctl add_user roboshop roboshop123
 rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*"
