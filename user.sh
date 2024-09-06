@@ -28,13 +28,5 @@ cp /home/centos/roboshop/user.service /etc/systemd/system/user.service
 echo -e "\e[36m>>>>>>>>>> start user service  <<<<<<<<\e[0m"
 systemctl daemon-reload
 systemctl enable user
-systemctl start user
+systemctl restart user
 
-echo -e "\e[36m>>>>>>>>>> Copy MongoDB Repo <<<<<<<<\e[0m"
-cp /home/centos/roboshop/mongo.repo /etc/yum.repos.d/mongo.repo
-
-echo -e "\e[36m>>>>>>>>>> Install MongoDB Client <<<<<<<<\e[0m"
-yum install mongodb-org-shell -y
-
-echo -e "\e[36m>>>>>>>>>> Load schema <<<<<<<<\e[0m"
-mongo --host mongodb-dev.raviteja.shop </app/schema/user.js
