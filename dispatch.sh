@@ -1,8 +1,11 @@
+script_path=$(dirname $0)
+source ${script_path}/common.sh
+
 echo -e "\e[36m>>>>>>>>>>Install Golang <<<<<<<<\e[0m"
 dnf install golang -y
 
 echo -e "\e[36m>>>>>>>>>> Add Application User <<<<<<<<\e[0m"
-useradd roboshop
+useradd ${app_user}
 
 echo -e "\e[36m>>>>>>>>>> Create Application Directory<<<<<<<<\e[0m"
 rm -rf /app
