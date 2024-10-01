@@ -25,7 +25,7 @@ echo -e "\e[36m>>>>>>>>>> install NodeJS Dependencies <<<<<<<<\e[0m"
 npm install
 
 echo -e "\e[36m>>>>>>>>>> Create Application Directory <<<<<<<<\e[0m"
-cp /home/centos/roboshop/user.service /etc/systemd/system/user.service
+cp ${script_path}/user.service /etc/systemd/system/user.service
 
 
 echo -e "\e[36m>>>>>>>>>> start user service  <<<<<<<<\e[0m"

@@ -5,7 +5,7 @@ echo -e "\e[36m>>>>>>>>>> Disable default mysql <<<<<<<<\e[0m"
 dnf module disable mysql -y
 
 echo -e "\e[36m>>>>>>>>>> Copy Mysql repo file <<<<<<<<\e[0m"
-cp /home/centos/roboshop/mysql.repo /etc/yum.repos.d/mysql.repo
+cp ${script_path}/mysql.repo /etc/yum.repos.d/mysql.repo
 
 echo -e "\e[36m>>>>>>>>>> Install Mysql <<<<<<<<\e[0m"
 dnf install mysql-community-server -y

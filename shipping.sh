@@ -24,7 +24,7 @@ mvn clean package
 mv target/shipping-1.0.jar shipping.jar
 
 echo -e "\e[36m>>>>>>>>>> Setup SystemD service <<<<<<<<\e[0m"
-cp /home/centos/roboshop/shipping.service /etc/systemd/system/shipping.service
+cp ${script_path}/shipping.service /etc/systemd/system/shipping.service
 
 echo -e "\e[36m>>>>>>>>>> Install Mysql <<<<<<<<\e[0m"
 dnf install mysql -y
